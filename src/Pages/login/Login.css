@@ -1,0 +1,77 @@
+.login-main{
+    width: 100%;
+    margin: 15vh 0vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content{
+    padding: 1.5vh;
+    width: 35%;
+    height: 90vh;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.contenter1{
+    justify-content: center;
+}
+
+.fundoo{
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+}
+
+.sign-in{
+    font-size: 25px;
+}
+
+.create-account{
+    /* background-color: black; */
+    font-size: 20px;
+    margin: -1vh 0vw 3vh 0vw;
+}
+
+.email{
+    font-size: 0px;
+    padding: 0px ;
+}
+
+.computer{
+}
+
+.text{
+    font-size: 15px;
+}
+
+.more{
+    color: blue;
+}
+
+.create{
+    display: flex;
+    margin: 0vh 2vw;
+    margin-top: 50px;
+}
+
+.c-account{
+    color: blue;
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-size: 15px;
+}
+
+
+.button{
+    color: whitesmoke;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: 0vh 0vw;
+    background-color: blue;
+}
+
+.blue-box{
+    margin: 2vh 0vw 0vh 10vw;
+}
