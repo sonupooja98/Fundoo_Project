@@ -6,14 +6,14 @@ export class Login extends Component {
         return (
             <div className="login-main">
         <div className="login-content">
-            <div className="contenter1">
+            <div className="container1">
                 <div className="fundoo">
-                    <p style={{ color: 'blue' }} >G</p>
+                    <p style={{ color: 'blue' }} >F</p>
+                    <p style={{ color: 'red' }}>u</p>
+                    <p style={{ color: 'yellow' }}>n</p>
+                    <p style={{ color: 'blue' }}>d</p>
+                    <p style={{ color: 'green' }}>o</p>
                     <p style={{ color: 'red' }}>o</p>
-                    <p style={{ color: 'yellow' }}>o</p>
-                    <p style={{ color: 'blue' }}>g</p>
-                    <p style={{ color: 'green' }}>l</p>
-                    <p style={{ color: 'red' }}>e</p>
                 </div>
                 <p className="sign-in">Sign in</p>
                 < p className="create-account">Use your fundoo Account</p>
