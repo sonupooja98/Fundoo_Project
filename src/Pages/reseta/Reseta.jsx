@@ -4,10 +4,10 @@ import { TextField } from "@material-ui/core";
 export class Reseta extends Component {
     render() {
         return (
-            <div className="reset-main-page">
-                <div className="reset-page">
-                    <div className="first-part">
-                        <div className="fundoo">
+            <div className="reset-main">
+                <div className="reset">
+                    <div className="part-one">
+                        <div className="Fundoo">
                             <p style={{ color: 'blue' }} >F</p>
                             <p style={{ color: 'red' }}>u</p>
                             <p style={{ color: 'yellow' }}>n</p>
@@ -15,8 +15,8 @@ export class Reseta extends Component {
                             <p style={{ color: 'green' }}>o</p>
                             <p style={{ color: 'red' }}>o</p>
                         </div>
-                        < p className="find-email">Find your email</p>
-                        <p className="enter-password">Enter password</p>
+                        < p className="email">Find your email</p>
+                        <p className="password">Enter password</p>
                     </div>
                     <div className="password">
                         <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth />
@@ -24,7 +24,7 @@ export class Reseta extends Component {
                     <div className="confirm-password">
                         <TextField id="outlined-basic" label="Confirm Password" variant="outlined" fullWidth />
                     </div>
-                    <button className="next-button">Next</button>
+                    <button className="button">Next</button>
                 </div>
             </div>
         )
