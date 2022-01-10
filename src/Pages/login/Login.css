@@ -14,7 +14,7 @@
     background-color: white;
 }
 
-.contenter1{
+.container1{
     justify-content: center;
 }
 
@@ -22,10 +22,12 @@
     display: flex;
     font-size: 25px;
     justify-content: center;
+    
 }
 
 .sign-in{
     font-size: 25px;
+    
 }
 
 .create-account{
