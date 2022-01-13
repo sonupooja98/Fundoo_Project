@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Signup.css'
 import { TextField } from "@material-ui/core";
 import logo from '../signup/assest/googleLogo.png'
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export class Signup extends Component {
     constructor(props) {
         super(props)
@@ -99,7 +99,7 @@ export class Signup extends Component {
                         </div>
                         <div className="last-section">
                             <div class="sign-instead">
-                            {/* <Link to="/login"> */<p className="login">Sign in Instead</p> /*</Link> */}
+                            <Link to="/login"><p className="login">Sign in Instead</p> </Link> 
                             </div>
                             <div class="next-button">
                                 <button className="button1" onClick={this.next}>Next</button>

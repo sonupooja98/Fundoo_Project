@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Reseta.css';
 import { TextField } from "@material-ui/core";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export class Reseta extends Component {
 
     constructor(props){
@@ -88,7 +88,7 @@ export class Reseta extends Component {
                          helperText={this.state.confirmResetPassError ? "Password Required" : ""}
                          onChange={e=>this.checkData(e)} />
                     </div>
-                    {/* <Link to="./forgot">*/ <button className="b"  onClick={this.next} >Next</button>/*</Link> */}
+                    <Link to="./forgot"><button className="b"  onClick={this.next} >Next</button></Link> 
                 </div>
             </div>
         )

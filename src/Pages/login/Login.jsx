@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Login.css'
 import { TextField } from "@material-ui/core";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export class Login extends Component {
     constructor(props){
         super(props)
@@ -87,7 +87,7 @@ next =() =>{
                 <p className="m">Learn more</p>
             </div>
             <div className="c">
-               {/* /*<Link to="./signup">*/<p className="acct" >Create account ?</p>/*</Link> */}
+               <Link to="./signup"><p className="acct" >Create account ?</p></Link> 
                 <div className="b">
                     <button className="bu" onClick={this.next}>Next</button>
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import '../forgotPassword/Forgot.css'
 import { TextField } from "@material-ui/core";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export class Forgot extends Component {
 
@@ -68,7 +68,7 @@ export class Forgot extends Component {
                         helperText={this.state.numEmailError ? "Number or Email required" : ""}
                         onChange={e=>this.changeHandle(e)} />
                     </div>
-                 {/* /*<Link to="./reseta">*/<button className="button" onClick={this.next}>Next</button>/*</Link> */}
+                 <Link to="./reseta"><button className="button" onClick={this.next}>Next</button></Link> 
                 </div>
             </div>
         )
