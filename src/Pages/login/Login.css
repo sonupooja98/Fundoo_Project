@@ -1,4 +1,4 @@
-.login-main{
+.L-main{
     width: 100%;
     margin: 15vh 0vw;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.login-content{
+.l-con{
     padding: 1.5vh;
     width: 35%;
     height: 90vh;
@@ -14,66 +14,65 @@
     background-color: white;
 }
 
-.container1{
+.c1{
     justify-content: center;
 }
 
-.fundoo{
+.f{
     display: flex;
     font-size: 25px;
     justify-content: center;
-    
 }
 
-.sign-in{
+.s-in{
     font-size: 25px;
-    
+    margin:2vh 14vw;
 }
 
-.create-account{
-    /* background-color: black; */
+.c-account{
+   
     font-size: 20px;
-    margin: -1vh 0vw 3vh 0vw;
+    margin: -1vh 0vw 3vh 9vw;
 }
 
-.email{
+.em{
     font-size: 0px;
     padding: 0px ;
 }
 
-.computer{
+.com{
 }
 
-.text{
+.t{
     font-size: 15px;
 }
 
-.more{
+.m{
     color: blue;
 }
 
-.create{
+.c{
     display: flex;
     margin: 0vh 2vw;
     margin-top: 50px;
 }
 
-.c-account{
+.acct{
     color: blue;
-    /* align-items: center; */
-    /* justify-content: center; */
+   margin: 0vh -2vw;
     font-size: 15px;
 }
 
 
-.button{
+.bu{
     color: whitesmoke;
     /* align-items: center; */
     /* justify-content: center; */
-    margin: 0vh 0vw;
+    margin: 1vh 3vw;
     background-color: blue;
 }
 
-.blue-box{
-    margin: 2vh 0vw 0vh 10vw;
+.b{
+    
+    margin: 2vh 0vw 1vh 15vw;
 }

@@ -74,11 +74,14 @@
 }
 
 .password{
-  width: 50%;
+  margin:0vh -1vw ;
+  
+  width: 100%;
 }
 
 .c-password{
-  width: 50%;
+ margin: 0vh -3vw;
+  width: 100%;
 }
 .pass-validation{
   font-size: 12px;

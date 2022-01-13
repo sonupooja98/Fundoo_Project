@@ -22,24 +22,26 @@
 }
 
 .Fundoo{
+    font-size: 25px;
     display: flex;
     margin: 0vh 0vw -5vh 12vw;
 }
 
 .Email{
-    font-size: 25px;
+    font-size: 15px;
+    margin: 5vh 1vw;
 }
 
 .phoneNumber{
     font-size: 15px;
-    margin: 2vh 0vw 3vh 0vw;
+    margin: 2vh 0vw 3vh 1vw;
     font-weight: 450;
 }
 
 .Num-or-Email{
     width: 85%;
     justify-content: center;
-    margin: 2vh 0vw 3vh 2.0vw;
+    margin: 2vh 0vw 3vh 1vw;
 }
 
 .button{

@@ -1,9 +1,51 @@
 import React, { Component } from "react";
 import '../forgotPassword/Forgot.css'
 import { TextField } from "@material-ui/core";
+// import { Link } from "react-router-dom";
 
 export class Forgot extends Component {
-    render() {
+
+           constructor(props){
+                    super(props)
+
+                    this.state={
+                        numEmail:'',
+                        numEmailError:false
+                    }
+                }
+                changeHandle =(e)=>{
+                    console.log(this.state)
+                    this.setState({
+                        [e.target.name] : e.target.value
+                    })
+                }
+            
+                validation =() =>{
+                    let isError = false;
+                    const error  =this.state;
+                    error.numEmailError  = this.state.numEmail === '' ? true : false;
+            
+            
+            
+                    this.setState({
+                        ...error
+                    })
+            
+                    return isError = error.numEmailError;
+                }
+            
+            
+                next =() =>{
+                    var validated = this.validation();
+                    if(validated){
+                        console.log("Validation successfull !!!")
+                    }
+                }
+        
+
+
+
+ render() {
         return (
             <div className="forgot-main">
                 <div className="forgot">
@@ -16,13 +58,17 @@ export class Forgot extends Component {
                             <p style={{ color: 'green' }}>o</p>
                             <p style={{ color: 'red' }}>o</p>
                         </div>
-                        < p className="Email">Find your email</p>
-                        <p className="phoneNumber">Enter your phone phone or recovery email</p>
+                        
+                      <p className="Email">Find your email</p>
+                        <p className="phoneNumber">Enter your phone or recovery email</p> 
                     </div>
                     <div className="Num-or-Email">
-                        <TextField id="outlined-basic" label="Phone number or email" variant="outlined" fullWidth />
+                        <TextField name="numEmail" id="outlined-basic" label="Phone number or email" variant="outlined" fullWidth
+                        error={this.state.numEmailError}
+                        helperText={this.state.numEmailError ? "Number or Email required" : ""}
+                        onChange={e=>this.changeHandle(e)} />
                     </div>
-                    <button className="button">Next</button>
+                 {/* /*<Link to="./reseta">*/<button className="button" onClick={this.next}>Next</button>/*</Link> */}
                 </div>
             </div>
         )
