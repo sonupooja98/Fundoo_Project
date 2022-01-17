@@ -127,3 +127,6 @@
   font-style: italic;
   margin: -10vh 0vw 0vh 5vw;
 }
+.passId-row{
+  display: flex;
+}

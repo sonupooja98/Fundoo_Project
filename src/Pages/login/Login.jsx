@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import './Login.css'
 import { TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import UserService from "../../services/UserService";
+
+const service= new UserService();
 export class Login extends Component {
     constructor(props){
         super(props)
@@ -34,20 +37,39 @@ export class Login extends Component {
         return isError = error.emailIdError || error.passIdError;
     }
 
+  
 
 
 
-
-
-
-next =() =>{
+next=() =>{
         var validated = this.validation();
-        if(validated){
-            console.log("sucessfull")
-        } else console.log("something missing")
-    }
+        let request;
+        if(!validated){
+            request={
+                "email":this.state.emailId,
+                "password":this.state.passId
+               }
+            console.log("login done successfully",request);
+            service.Login(request)
+            .then(res=>{
+                console.log(res);
+                this.setState({
+                    emailid:'',
+                    passid:''
+                })
+                this.props.history.push("/login");
+            })
+                .catch(err=>{
+                    console.log(err);
+                })
+            }
+           else {
+            console.log("something missing")
+         }
+       
+        }
 
-
+    
 
 
 
@@ -69,16 +91,16 @@ next =() =>{
                 < p className="c-account">Use your fundoo Account</p>
             </div>
             <div className="em">
-                <TextField name="emailId" id="outlined-basic" label="Email or phone" variant="outlined" helperText="Forgot Email?" fullWidth 
-                error = {this.state.emailIdError}
-                helperText = {this.state.emailIdError ? "Email or number required" : ""} onChange={e=>this.Data(e)}
+                <TextField name="emailId" id="outlined-basic" label="Email or phone" variant="outlined"  fullWidth 
+                error={this.state.emailIdError}
+                helperText={this.state.emailIdError ? "Email or number required" : ""} 
                 onChange={e=>this.Data(e)}/>
             </div>
             <br></br>
             <div className="pass">
-                <TextField name="passId" id="outlined-basic" label="Password" variant="outlined" helperText="Forgot Password" fullWidth 
+                <TextField name="passId" id="outlined-basic" label="Password" variant="outlined"  fullWidth 
                 error={this.state.passIdError}
-                helperText = {this.state.passIdError ? "Password required" : ""}onChange={e=>this.Data(e)}
+                helperText={this.state.passIdError ? "Password required" : ""}
                 onChange={e=>this.Data(e)}/>
 
             </div>
@@ -87,9 +109,10 @@ next =() =>{
                 <p className="m">Learn more</p>
             </div>
             <div className="c">
-               <Link to="./signup"><p className="acct" >Create account ?</p></Link> 
+               <Link to="/signup"><p className="acct" >Create account ?</p></Link> 
                 <div className="b">
-                    <button className="bu" onClick={this.next}>Next</button>
+                    {/* <Link to="/dashboard"></Link> */}
+                    <button className="bu"  onClick={this.next}> Next</button>
                 </div>
             </div>
         </div>
@@ -97,5 +120,6 @@ next =() =>{
         )
     }
 }
+
 
 export default Login
