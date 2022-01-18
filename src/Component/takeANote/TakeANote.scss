@@ -1,0 +1,46 @@
+.firstContainer{
+    border-radius: 5px;
+    border: solid transparent;
+    display: flex;
+    margin-left: 12vw;
+    margin-top: 5vh;
+    justify-content: space-between;
+    width: 50%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    min-height: 30px;
+}
+.firstContainer>input{
+    border: none;
+}
+.secondContainer{
+    
+    width: 550px ;
+    height: 150px;
+    margin-left: 350px ;
+    margin-top:50px;
+    flex-direction: column;
+    border: 1px solid black;
+    display: flex;
+    padding-bottom: 10 px;
+    outline: none;
+    justify-content: space-between;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border: solid transparent;
+
+}
+.secondContainer > .input1{
+    outline: none;
+    border:transparent;
+    font-size: 1rem;
+    min-height: 30px;
+}
+.secondContainer > .input2{
+ outline: none;
+ border:transparent;
+ font-size: 1rem;
+ min-height: 30px;
+}
+.icons{
+    margin-right: 280px;
+    justify-content: space-between;
+}

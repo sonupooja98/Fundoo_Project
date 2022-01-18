@@ -52,10 +52,10 @@ export class Forgot extends Component {
             service.Forgot(request)
                 .then(res => {
                     console.log(res);
-                    this.setState({
-                        numemail:"",
-                    })
-                    this.props.history.push("/Forgot")
+                    // this.setState({
+                    //     numemail:"",
+                    // })
+                    // this.props.history.push("/Forgot")
                 })
                 .catch(err => {
                     console.log(err);
@@ -97,7 +97,7 @@ export class Forgot extends Component {
                             onChange={e => this.changeHandle(e)} />
                     </div>
                     {/* <Link className='Create-button' to="/Login">Sign in instead</Link> */}
-                   <Link to="/reseta"> <button className="button" onClick={this.next}>Next</button></Link>
+                    <button className="button" onClick={this.next}>Next</button>
                 </div>
             </div>
         )
