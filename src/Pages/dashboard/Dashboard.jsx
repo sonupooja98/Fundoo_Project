@@ -23,8 +23,10 @@ import '../dashboard/Dashboard.scss'
 import { TextField, Button } from "@material-ui/core";
 import TakeANote from "../../Component/takeANote/TakeANote";
 import DisplayNote from "../../Component/displayNote/DisplayNote"
-
+import Notes from "../notes/Notes";
 import k from '../Assest/k.png'
+
+
 
 
 
@@ -74,11 +76,18 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open"
 })(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1,
+    backgroundColor:"white",
+    boxShadow:"0px",
+    color:"black",
+    border:"1px solid lighgrey",
+    fontsize:"22px",
+
+
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
-    backgroundcolor: '#ffffff'
+    
   }),
   ...(open && {
     marginLeft: drawerWidth,
@@ -193,12 +202,12 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-             
-
-         
+        {/* <TakeANote />
+         <DisplayNote /> */}
+         <Notes />
         <Typography paragraph>
-           <TakeANote></TakeANote>
-           <DisplayNote></DisplayNote>
+           
+           {/* <DisplayNote></DisplayNote> */} 
         </Typography>
         <Typography paragraph>
         

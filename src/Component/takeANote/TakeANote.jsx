@@ -3,16 +3,21 @@ import { Button } from "@material-ui/core";
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
+// import UserService from "../../services/userService";
+// import NoteService from "../../services/noteService";
 
+import '../takeANote/TakeANote.scss'
 
-
-import './TakeANote.scss'
 
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
+
+
+
+// const noteService = new NoteService();
 
 export class TakeANote extends Component {
 
@@ -24,14 +29,29 @@ export class TakeANote extends Component {
         }
     }
 
-    changeTakeOpen =() =>{
+    changeTakeOpen = () => {
         this.setState({
-            open : false
+            open: false
         })
     }
 
-    changeTakeClose = () =>{
+    changeTakeClose = () => {
+        this.setState({
+            open: true
+        })
 
+        let data = {
+            "title": this.state.title,
+            "description": this.state.description
+        }
+ 
+        
+    }
+
+    getNotesOnChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
 
@@ -44,27 +64,30 @@ export class TakeANote extends Component {
                     {
                         this.state.open ?
                             <div className="firstContainer">
-                                <input type="text" placeholder="Take a Note" onClick={this.changeTakeOpen}/>
-                                <div>
-                                <CheckBoxOutlinedIcon />
-                                <BrushOutlinedIcon />
-                                <PhotoOutlinedIcon />
+                                <input className="firstTitle" type="text" placeholder="Take a Note" onClick={this.changeTakeOpen} />
+                                <div className="firstTitleIcon">
+                                    <CheckBoxOutlinedIcon />
+                                    <BrushOutlinedIcon />
+                                    <PhotoOutlinedIcon />
 
                                 </div>
                             </div>
 
                             :
                             <div className="secondContainer">
-                                <input1 type="text" name="" id=""  placeholder="Title"/><br></br>
-                                <input2 type="text" name="" id=""  placeholder="Take a Note"/>
-                                <div className="icons">
-                                <AddAlertOutlinedIcon />
-                                <PersonAddAltOutlinedIcon />
-                                <ColorLensOutlinedIcon />
-                                <PhotoOutlinedIcon />
-                                <ArchiveOutlinedIcon />
-                                <MoreVertOutlinedIcon />
-                                    <Button variant="text" onClick={this.changeTakeClose}>Close</Button>
+                                <input className="Titlepart" type="text" name="title" id="" placeholder="Title" onChange={(e) => this.getNotesOnChange} /><br></br>
+                                <input className="Descriptionpart" type="text" name="description" id="" placeholder="Take a note" onChange={(e) => this.getNotesOnChange} />
+                                <div className="onecontainer">
+                                    <div className="Iconpart">
+                                        <AddAlertOutlinedIcon />
+                                        <PersonAddAltOutlinedIcon />
+                                        <ColorLensOutlinedIcon />
+                                        <PhotoOutlinedIcon />
+                                        <ArchiveOutlinedIcon />
+                                        <MoreVertOutlinedIcon />
+                                    </div>
+
+                                    <Button className="secondCButton" variant="text" onClick={this.changeTakeClose}>Close</Button>
                                 </div>
                             </div>
                     }

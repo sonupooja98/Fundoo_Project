@@ -1,0 +1,42 @@
+
+.mainDisplay{
+    box-shadow: -1px -1px 5px rgb(153, 150, 150),
+    1px 1px 10px rgb(153, 150, 150);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 150px
+
+}
+    .partmain{
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 90px;
+        align-items: center;
+        justify-content: center;
+    }
+    .main{
+        outline: none;
+            border: none;
+            width: 100%;
+            height: 80px;
+    }
+
+    .displayBox{
+   
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .des-icons{
+   
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .Buttonportion{
+        margin: 0vh 5vw;
+    }
+

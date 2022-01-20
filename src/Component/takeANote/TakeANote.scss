@@ -1,46 +1,60 @@
-.firstContainer{
-    border-radius: 5px;
-    border: solid transparent;
-    display: flex;
-    margin-left: 12vw;
-    margin-top: 5vh;
-    justify-content: space-between;
+.mainContainer{
+    height: 1cm;
     width: 50%;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    min-height: 30px;
-}
-.firstContainer>input{
-    border: none;
-}
-.secondContainer{
-    
-    width: 550px ;
-    height: 150px;
-    margin-left: 350px ;
-    margin-top:50px;
-    flex-direction: column;
-    border: 1px solid black;
     display: flex;
-    padding-bottom: 10 px;
-    outline: none;
-    justify-content: space-between;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    border: solid transparent;
-
-}
-.secondContainer > .input1{
-    outline: none;
-    border:transparent;
-    font-size: 1rem;
-    min-height: 30px;
-}
-.secondContainer > .input2{
- outline: none;
- border:transparent;
- font-size: 1rem;
- min-height: 30px;
-}
-.icons{
-    margin-right: 280px;
-    justify-content: space-between;
+    .firstContainer{
+        box-shadow: -1px -1px 5px rgb(153, 150, 150),
+        1px 1px 10px rgb(153, 150, 150);
+        display: flex;
+        width: 80%;
+       
+        
+        .firstTitle{
+            width: 70%;
+            outline: none;
+            border: none;
+        }
+        .firstTitleIcon{
+            width: 25%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+    .secondContainer{
+        box-shadow: -1px -1px 5px rgb(153, 150, 150),
+        1px 1px 10px rgb(153, 150, 150);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 150px;
+    
+        .Titlepart{
+            outline: none;
+            border: none;
+            width: 100%;
+            height: 90px;
+            align-items: center;
+            justify-content: center;
+        }
+        .Descriptionpart{
+            outline: none;
+            border: none;
+            width: 100%;
+            height: 80px;
+        }
+        .onecontainer{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            .Iconpart{
+                width: 60%;
+                display: flex;
+                justify-content: space-around;
+               
+            }
+           
+    }
+    }
 }
