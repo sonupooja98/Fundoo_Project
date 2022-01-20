@@ -10,27 +10,48 @@ import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
 import '../displayNote/DisplayNote.scss'
 
 export class DisplayNote extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+
+
+
+
+
+
+
     render() {
+        console.log(this.props.AddingValues)
+
         return (
             <div className="mainDisplay">
-                  <input className="partmain" type="text" name="title" id="" placeholder="Title"></input>
-                  <input className="main" type="text" name="title" id="" placeholder="Description"></input>
-                <div className="displayBox">
-                    <div className="Title"></div>
-                    <div className="Description"></div>
-                    <div className="des-icons">
-                        <AddAlertOutlinedIcon />
-                        <PersonAddAltOutlinedIcon />
-                        <ColorLensOutlinedIcon />
-                        <PhotoOutlinedIcon />
-                        <ArchiveOutlinedIcon />
-                        <MoreVertOutlinedIcon />
+                {this.props.AddingValues.map((item, index) => (
+                    <div className='display-container'>
+                        <div>
+                            {item.title} <br />
+                            {item.description}
+                        </div>
+
+
+                        <input className="partmain" type="text" name="title" id="" placeholder="Title"></input>
+                        <div className="des-icons">
+                            <AddAlertOutlinedIcon />
+                            <PersonAddAltOutlinedIcon />
+                            <ColorLensOutlinedIcon />
+                            <PhotoOutlinedIcon />
+                            <ArchiveOutlinedIcon />
+                            <MoreVertOutlinedIcon />
+                        </div>
+
                     </div>
-                    <Button className="Buttonportion" variant="text" onClick={this.changeTakeClose}>Close</Button>
-                </div>
-            </div>
+                ))}
+          </div>
         )
     }
 }
+
 
 export default DisplayNote

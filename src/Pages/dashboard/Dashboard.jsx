@@ -23,7 +23,9 @@ import '../dashboard/Dashboard.scss'
 import { TextField, Button } from "@material-ui/core";
 import TakeANote from "../../Component/takeANote/TakeANote";
 import DisplayNote from "../../Component/displayNote/DisplayNote"
-import Notes from "../notes/Notes";
+// import Notes from "../notes/Notes";
+
+
 import k from '../Assest/k.png'
 
 
@@ -202,9 +204,9 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* <TakeANote />
-         <DisplayNote /> */}
-         <Notes />
+         <TakeANote /> 
+           {/* <DisplayNote />    */}
+         {/* <Notes /> */}
         <Typography paragraph>
            
            {/* <DisplayNote></DisplayNote> */} 

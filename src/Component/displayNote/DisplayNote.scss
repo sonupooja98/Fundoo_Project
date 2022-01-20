@@ -1,16 +1,19 @@
 
 .mainDisplay{
-    box-shadow: -1px -1px 5px rgb(153, 150, 150),
+    box-shadow: -1px -1px 3px rgb(153, 150, 150),
     1px 1px 10px rgb(153, 150, 150);
     display: flex;
     flex-direction: column;
     width: 250px;
+    margin-top: 160px;
     height: 150px
+    
 
 }
     .partmain{
         outline: none;
         border: none;
+        margin: -2vh 0vw;
         width: 100%;
         height: 90px;
         align-items: center;
@@ -31,12 +34,11 @@
         align-items: center;
     }
     .des-icons{
-   
+       margin-top: 45px;
+      justify-content: space-between;
         width: 60%;
         display: flex;
-        justify-content: space-around;
+    //   margin: 5vh 1vw;
     }
-    .Buttonportion{
-        margin: 0vh 5vw;
-    }
+   
 

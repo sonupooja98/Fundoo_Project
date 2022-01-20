@@ -9,23 +9,23 @@ const axiosService = new AxiosSerives();
 
 class UserService{
     Registeration(data){
-        axiosService.postMethod(
+      return  axiosService.postMethod(
         `${baseurl}user/userSignUp`,data);
 
     }
 
  Login(data){
-    axiosService.postMethod(
+   return axiosService.postMethod(
         `${baseurl}user/login`,data);
  }
 
  Reseta(data){
-    axiosService.postMethod(
+  return  axiosService.postMethod(
         `${baseurl}user/reset-password`,data);
  
  }
  Forgot(data){
-    axiosService.postMethod(
+  return  axiosService.postMethod(
         `${baseurl}user/reset`,data);
  }
 

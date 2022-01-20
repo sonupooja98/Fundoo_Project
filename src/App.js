@@ -13,9 +13,9 @@ function App() {
   return (
     <BrowserRouter>
         <div className="App">
-         {/*  */}
+        
       <Switch>
-      <Route path='/Dashboard' component={Dashboard} />
+      <Route path='/dashboard' component={Dashboard} />
       <Route path='/signup' component={Signup} />
         {/* <Route path='/' component={Signup} /> */}
         <Route path='/login' component={Login} />
