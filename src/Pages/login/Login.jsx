@@ -53,7 +53,7 @@ next=() =>{
             service.Login(request)
             .then(res=>{
                 console.log(res);
-                localStorage.setItem('token',res,request.id)
+                localStorage.setItem('id',res.data.id)
                 this.setState({
                     emailid:'',
                     passid:''

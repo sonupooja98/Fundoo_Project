@@ -6,7 +6,7 @@ const service = new AxiosService();
 
 let headerConfig={
      headers:{
-       Authorization: localStorage.getItem('token')
+       Authorization: localStorage.getItem('id')
      }
 }
 
@@ -17,9 +17,10 @@ class NoteService {
       return service.postMethod(`${baseUrl}notes/addNotes`,data,headerConfig)
   }
    getNote(){
-     return service.getMethod(`${baseUrl}/notes/getNotesList?access_token=`+headerConfig.headers.Authorization)
+     return service.getMethod(`${baseUrl}notes/getNotesList`,headerConfig)
    }
 }
+
 
 
 export default NoteService

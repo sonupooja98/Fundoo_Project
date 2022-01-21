@@ -1,44 +1,40 @@
-
 .mainDisplay{
-    box-shadow: -1px -1px 3px rgb(153, 150, 150),
-    1px 1px 10px rgb(153, 150, 150);
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    margin-top: 160px;
-    height: 150px
-    
-
-}
-    .partmain{
-        outline: none;
-        border: none;
-        margin: -2vh 0vw;
-        width: 100%;
-        height: 90px;
-        align-items: center;
-        justify-content: center;
-    }
-    .main{
-        outline: none;
-            border: none;
-            width: 100%;
-            height: 80px;
-    }
-
-    .displayBox{
+   margin-top: 250px;
+    display: grid;
+     grid-template-columns: repeat(5);
+    grid-gap:10px;
+    flex-direction: row;
+    width: 50%;
+    row-gap: 1cm;
    
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
+}
+    .display-container{
+        width: 40%;
+        height: 100px;
+        box-shadow: -1px -1px 5px rgb(153, 150, 150),
+        1px 1px 10px rgb(153, 150, 150);
+        border-radius:4px;
+        .Description{
+            display: flex;
+            flex-direction: column;
+        } 
+     
+            .lastpart{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                .des-icons{
+                    margin: 0vh 0vw;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                }
+                .secondCButton{
+                    margin: 0vh 1vw;
+                }
+            }
     }
-    .des-icons{
-       margin-top: 45px;
-      justify-content: space-between;
-        width: 60%;
-        display: flex;
-    //   margin: 5vh 1vw;
-    }
+
    
 

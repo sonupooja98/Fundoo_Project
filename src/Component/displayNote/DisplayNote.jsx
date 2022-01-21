@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
-import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import { Button } from "@material-ui/core";
-import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
+
+import NoteService from "../../services/NotesService";
+import Notes from "../../Pages/notes/Notes";
+
+import Icons from "../icons/Icons";
 
 import '../displayNote/DisplayNote.scss'
 
@@ -24,31 +22,27 @@ export class DisplayNote extends Component {
 
 
     render() {
-        console.log(this.props.AddingValues)
+        console.log(this.props.AddingNotes)
 
         return (
             <div className="mainDisplay">
-                {this.props.AddingValues.map((item, index) => (
+                {this.props. AddingNotes.map((item, index) => (
                     <div className='display-container'>
-                        <div>
-                            {item.title} <br />
+                        <div className="Description">
+                            {/* <input className="button" id="" placeholder="title"></input>
+                            <input className="buttonone" id="" placeholder="description"></input> */}
+                            {item.title}<br></br>
                             {item.description}
                         </div>
 
-
-                        <input className="partmain" type="text" name="title" id="" placeholder="Title"></input>
-                        <div className="des-icons">
-                            <AddAlertOutlinedIcon />
-                            <PersonAddAltOutlinedIcon />
-                            <ColorLensOutlinedIcon />
-                            <PhotoOutlinedIcon />
-                            <ArchiveOutlinedIcon />
-                            <MoreVertOutlinedIcon />
+                        <div className="lastpart">
+                            <div className="des-icons">
+                                <Icons />
+                            </div>
                         </div>
-
                     </div>
-                ))}
-          </div>
+                 ))} 
+            </div>
         )
     }
 }

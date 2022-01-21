@@ -17,7 +17,7 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
 import NoteService from "../../services/NotesService";
 
-// const noteService = new NoteService();
+const noteService = new NoteService();
 
 export class TakeANote extends Component {
 
@@ -39,16 +39,14 @@ export class TakeANote extends Component {
     }
 
     handleChange = () => {
-        this.setState({
-            open: true
-        })
+      
 
         let data = {
             "title": this.state.title,
             "description": this.state.description
         }
 
-        NoteService.addNote(data)
+        noteService.addNote(data)
         .then(res=>{
             this.setState({
                 open:true,
@@ -59,9 +57,9 @@ export class TakeANote extends Component {
 
         })
     })
-        // .catch(err=>{
-        //     console.log(err);
-        // })
+        .catch(err=>{
+            console.log(err);
+        })
     }
          
 
@@ -94,8 +92,8 @@ export class TakeANote extends Component {
 
                             :
                             <div className="secondContainer">
-                                <input className="Titlepart" type="text" name="title" id="" placeholder="Title" onChange={(e) => this.  handleNotesOnChange} /><br></br>
-                                <input className="Descriptionpart" type="text" name="description" id="" placeholder="Take a note" onChange={(e) => this.  handleNotesOnChange} />
+                                <input className="Titlepart" type="text" name="title" id="" placeholder="Title" onChange={(e) => this.handleNotesOnChange(e)} /><br></br>
+                                <input className="Descriptionpart" type="text" name="description" id="" placeholder="Take a note" onChange={(e) => this.handleNotesOnChange(e)} />
                                 <div className="onecontainer">
                                     <div className="Iconpart">
                                         <AddAlertOutlinedIcon />
@@ -106,7 +104,7 @@ export class TakeANote extends Component {
                                         <MoreVertOutlinedIcon />
                                     </div>
 
-                                    <Button className="secondCButton" variant="text" onClick={this.  handleChange}>Close</Button>
+                                    <Button className="secondCButton" variant="text" onClick={this.handleChange}>Close</Button>
                                 </div>
                             </div>
                     }

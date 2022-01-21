@@ -25,12 +25,13 @@ export class Notes extends Component {
     }
 
         getAllNotes = () =>{
-        NoteService.getNote()
+            noteservice.getNote()
         .then((res)=>{
+            console.log(res);
             this.setState({
-                noteArray : res.data,
+                noteArray : res.data.data.data,
             })
-            console.log(this.state.AddingNotes);
+           
         })
         .catch((err)=>{
 
@@ -52,7 +53,7 @@ export class Notes extends Component {
             <div>
                 <div className="notesBox">
                 <TakeANote />
-                <DisplayNote  AddingNotes={this.state.AddingNotes}/> 
+                <DisplayNote  AddingNotes={this.state.noteArray}/> 
                 </div>
 
                 
