@@ -48,6 +48,7 @@ export class TakeANote extends Component {
 
         noteService.addNote(data)
         .then(res=>{
+             this.props.refreshDisplay();
             this.setState({
                 open:true,
                 title:'',
@@ -103,8 +104,8 @@ export class TakeANote extends Component {
                                         <ArchiveOutlinedIcon />
                                         <MoreVertOutlinedIcon />
                                     </div>
-
-                                    <Button className="secondCButton" variant="text" onClick={this.handleChange}>Close</Button>
+                                   <button className="secondCButton" variant="text" onClick={this.handleChange}>Close</button>
+                                    {/* <Button className="secondCButton" variant="text" onClick={this.handleChange}>Close</Button> */}
                                 </div>
                             </div>
                     }

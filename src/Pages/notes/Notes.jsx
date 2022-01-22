@@ -52,7 +52,7 @@ export class Notes extends Component {
         return (
             <div>
                 <div className="notesBox">
-                <TakeANote />
+                <TakeANote refreshDisplay={this.getAllNotes}/>
                 <DisplayNote  AddingNotes={this.state.noteArray}/> 
                 </div>
 
