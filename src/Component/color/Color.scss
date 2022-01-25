@@ -1,0 +1,60 @@
+@mixin I-color {
+    width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            margin: 0.5vh 0vw;
+}
+
+.color{
+width: 100%;
+height: 100%;
+    .I-color{
+        display: flex;
+        .red{
+            @include I-color();
+            background-color: #f28b82;
+        }
+        .orange{
+            @include I-color();
+            background-color:  #fbbc04;
+        }
+        .yellow{
+            @include I-color();
+            background-color:#fff475;
+        }
+        .green{
+            @include I-color();
+            background-color:#ccff90;
+        }
+        .teal{
+            @include I-color();
+            background-color: #a7ffeb;
+        }
+        .blue{
+            @include I-color();
+            background-color:#cbf0f8;
+        }
+        .darkblue{
+            @include I-color();
+            background-color:#aecbfa;
+        }
+        .purple{
+            @include I-color();
+            background-color:#d7aefb;
+        }
+        .pink{
+            @include I-color();
+            background-color:#fdcfe8;
+        }
+        .brown{
+            @include I-color();
+            background-color:#e6c9a8;
+        }
+        .grey{
+            @include I-color();
+            background-color:#e8eaed;
+        }
+    }
+    
+ 
+}
