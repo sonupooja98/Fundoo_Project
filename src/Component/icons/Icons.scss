@@ -1,5 +1,12 @@
 .icons-sections{
     margin-top: 15px;
     display: flex;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
+//  justify-content: space-around;
+}
+.colorPallets{
+  display: inline-flex;
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
 }

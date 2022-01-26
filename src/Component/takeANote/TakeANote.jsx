@@ -5,6 +5,7 @@ import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
 // import UserService from "../../services/userService";
 // import NoteService from "../../services/noteService";
+import Icons from "../icons/Icons";
 
 import '../takeANote/TakeANote.scss'
 
@@ -19,6 +20,7 @@ import NoteService from "../../services/NotesService";
 
 const noteService = new NoteService();
 
+
 export class TakeANote extends Component {
 
     constructor(props) {
@@ -28,9 +30,23 @@ export class TakeANote extends Component {
             open: true,
             title:'',
             description:'',
+            color:'#ffffff',
+            archive:false
+
         }
     }
-         
+    colorchange=(val)=>{
+        this.setState({
+            color:val
+        })
+    } 
+
+    archivebutton=(val)=>{
+        this.setState({
+            archive:val
+        })
+    } 
+
 
     changeTakeOpen = () => {
         this.setState({
@@ -41,18 +57,26 @@ export class TakeANote extends Component {
     handleChange = () => {
       
 
-        let data = {
-            "title": this.state.title,
-            "description": this.state.description
-        }
+        // let data = {
+        //     "title": this.state.title,
+        //     "description": this.state.description,
+        //     "color":this.state.color
+        // }
+        const formData = new FormData();
+        formData.append("title",this.state.title)
+        formData.append("description",this.state.description)
+        formData.append("color",this.state.color)
+        formData.append("isArchived",this.state.archive)
 
-        noteService.addNote(data)
+        noteService.addNote(formData)
         .then(res=>{
              this.props.refreshDisplay();
             this.setState({
                 open:true,
                 title:'',
                 description:'',
+                color:'#ffffff',
+                archive:false
 
             // console.log(res);
 
@@ -92,17 +116,13 @@ export class TakeANote extends Component {
                             </div>
 
                             :
-                            <div className="secondContainer">
+                            <div className="secondContainer" style={{backgroundColor:this.state.color}}>
                                 <input className="Titlepart" type="text" name="title" id="" placeholder="Title" onChange={(e) => this.handleNotesOnChange(e)} /><br></br>
                                 <input className="Descriptionpart" type="text" name="description" id="" placeholder="Take a note" onChange={(e) => this.handleNotesOnChange(e)} />
                                 <div className="onecontainer">
                                     <div className="Iconpart">
-                                        <AddAlertOutlinedIcon />
-                                        <PersonAddAltOutlinedIcon />
-                                        <ColorLensOutlinedIcon />
-                                        <PhotoOutlinedIcon />
-                                        <ArchiveOutlinedIcon />
-                                        <MoreVertOutlinedIcon />
+                                        <Icons colorchange={this.colorchange} archivebutton={this.archivebutton}/>
+                                        
                                     </div>
                                    <button className="secondCButton" variant="text" onClick={this.handleChange}>Close</button>
                                     {/* <Button className="secondCButton" variant="text" onClick={this.handleChange}>Close</Button> */}

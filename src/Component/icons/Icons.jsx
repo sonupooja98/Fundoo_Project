@@ -16,7 +16,11 @@ import { Popover } from '@material-ui/core';
 
 import Color from '../color/Color'
 
-
+let colorssss = [
+    "#f28b82", "#fbbc04", "#fff475", "#ccff90",
+    "#a7ffeb", "#cbf0f8", "#aecbfa", "#d7aefb",
+    "#fdcfe8", "#e6c9a8", "#e8eaed", "#aecbfa"
+]
 export class Icon extends Component {
     constructor(props) {
         super(props);
@@ -47,11 +51,17 @@ export class Icon extends Component {
         })
     }
 
-   
+
     Closecolor = () => {
         this.setState({
             color1: false
         })
+    }
+    newcolor = (col) => {
+        this.props.colorchange(col)
+    }
+    archive =()=>{
+        this.props.archivebutton(true)
     }
 
 
@@ -78,11 +88,22 @@ export class Icon extends Component {
                             horizontal: "left"
                         }}
                     >
-                        <Color />
+                        {/* <Color /> */}
+                        {
+                            colorssss.map((item, index) => (
+                                <div className="colorPallets" onClick={() => this.newcolor(item)}
+                                    style={{ backgroundColor: item }}>
+                                    {item.backgroundColor}
+                                </div>
+                            ))
+                        }
                     </Popover>
                 </div>
+
                 <IconButton><PhotoOutlinedIcon /></IconButton>
-                <IconButton><ArchiveOutlinedIcon /></IconButton>
+                <div>
+                <IconButton><ArchiveOutlinedIcon onClick={(e)=>this.archive(e)}/></IconButton>
+                </div>
                 <div>
                     <IconButton> <MoreVertOutlinedIcon onClick={(e) => this.handleOpen(e)} /> </IconButton>
 

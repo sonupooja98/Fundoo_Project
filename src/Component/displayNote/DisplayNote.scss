@@ -5,7 +5,7 @@
     grid-gap:10px;
     flex-direction: row;
     width: 100%;
-    row-gap: 1cm;
+    // row-gap: 1cm;
    
 }
 .display-container{
@@ -17,19 +17,21 @@
         .Description{
             display: flex;
             flex-direction: column;
+            text-align: left;
+            margin: 0vh 1vw;
         } 
      
             .lastpart{
                 display: flex;
                 width: 100%;
-                justify-content: space-between;
+                // justify-content: space-between;
                 // align-items: center;
                 .des-icons{
                     margin: 0vh 0vw;
                     width: 100%;
                     display: flex;
-                    justify-content: space-evenly;
-                    // justify-content: space-around;
+                    // justify-content: space-evenly;
+                    justify-content: space-around;
                 }
                 .secondCButton{
                     margin: 0vh 1vw;
