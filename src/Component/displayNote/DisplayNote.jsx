@@ -63,7 +63,9 @@ export class DisplayNote extends Component {
             title: this.props.AddingNotes.title,
             description: this.props.AddingNotes.description,
             color: '#ffffff',
-            id: ''
+            id:this.props.AddingNotes.id,
+            archive:false,
+            delete:false
 
 
         }
@@ -75,40 +77,56 @@ export class DisplayNote extends Component {
             description: item.description,
             id: item.id
         })
-        console.log(this.state.title)
+       
     }
     colorchange = (val) => {
         this.setState({
             color: val
         })
     }
+
+
+    changeArchive = (val) => {
+        this.setState({
+            checkArchive: val
+        })
+    }
+
+    changeDelete = (val) => {
+        this.setState({
+            handleDelete: val
+            
+        })
+    }
     handleClose = () => {
-        // this.setState({
-        //     open: false,
-        // })
+       
         const formData = new FormData();
         formData.append("title", this.state.title)
         formData.append("description", this.state.description)
-        formData.append("color", this.state.color)
-        formData.append("isArchived", this.state.archive)
+        formData.append("noteId", this.state.id)
 
-        noteService.getNote(formData)
+        noteService.getUpdatedNote(formData)
             .then(res => {
                 this.props.refreshDisplay();
                 this.setState({
                     open: false,
                     title: '',
                     description: '',
-                    color: '#ffffff',
-                    archive: false
+                    id:'',
 
-                    // console.log(res);
+                
 
                 })
             })
             .catch(err => {
                 console.log(err)
             })
+    }
+
+    howerTitleDesc = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     render() {
@@ -127,7 +145,9 @@ export class DisplayNote extends Component {
 
                         <div className="lastpart">
                             <div className="des-icons">
-                                <Icons mode="update" colorchange={this.colorchange} getAllNote={this.props.refreshDisplay} noteId={item.id} />
+                                <Icons mode="update"  changeArchive={this.changeArchive}
+                                 changeDelete={this.changeDelete}  colorchange={this.colorchange} 
+                                getAllNote={this.props.refreshDisplay} noteId={item.id} />
                             </div>
                         </div>
                     </div>
@@ -139,20 +159,26 @@ export class DisplayNote extends Component {
                             <BootstrapDialogTitle id="customized-dialog-title" onClose={this.handleClose} >
 
                                 <div className='first-title'>
-                                    <input type="text"  style={{ border: "none", outline: "none",backgroundColor: this.state.color }} value={this.state.title} name="title" onChange={(e) => this.howerTitleDesc(e)} />
+                                    <input type="text" style={{ border: "none", outline: "none", backgroundColor: this.state.color }} 
+                                    value={this.state.title} name="title" 
+                                    onChange={(e) => this.howerTitleDesc(e)} />
                                 </div>
 
                             </BootstrapDialogTitle>
                             <DialogContent>
 
                                 <div className='second-des'>
-                                    <input type="text"  style={{ border: "none", outline: "none",backgroundColor: this.state.color }} value={this.state.description} name="description" onChange={(e) => this.howerTitleDesc(e)} />
+                                    <input type="text" style={{ border: "none", outline: "none", backgroundColor: this.state.color }} 
+                                    value={this.state.description} name="description"
+                                     onChange={(e) => this.howerTitleDesc(e)} />
                                 </div>
 
                             </DialogContent>
                             <DialogContent className="close-Icon" >
 
-                                <Icons mode="update" colorchange={this.colorchange} noteId={this.state.id} refreshDisplay={this.props.getAllNotes} />
+                                <Icons mode="update" changeArchive={this.changeArchive} changeDelete={this.changeDelete}  
+                                colorchange={this.colorchange} 
+                                 noteId={this.state.id} refreshDisplay={this.props.getAllNotes} />
                                 <button autoFocus onClick={(title, description) => this.handleClose(title, description)}>Close</button>
                                 {/* <Button autoFocus onClick={(title, description) => this.handleClose(title, description)}> Close </Button> */}
                             </DialogContent>

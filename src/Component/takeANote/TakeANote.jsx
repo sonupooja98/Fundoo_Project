@@ -71,7 +71,6 @@ export class TakeANote extends Component {
                 color:'#ffffff',
                 archive:false
 
-            // console.log(res);
 
         })
     })

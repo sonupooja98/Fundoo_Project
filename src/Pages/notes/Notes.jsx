@@ -28,8 +28,9 @@ export class Notes extends Component {
             noteservice.getNote()
         .then((res)=>{
             console.log(res);
+            let filterData= res.data.data.data.filter(data=>data.isArchived !==true && data.isDeleted !==true)
             this.setState({
-                noteArray : res.data.data.data,
+                noteArray : filterData
             })
            
         })

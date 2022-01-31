@@ -43,6 +43,8 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
+import Profile from '../profile/Profile'
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -180,7 +182,8 @@ export default function MiniDrawer() {
                 <ViewStreamOutlinedIcon />
                 <SettingsOutlinedIcon />
                 <AppsOutlinedIcon />
-                <AccountCircleOutlinedIcon />
+                {/* <AccountCircleOutlinedIcon /> */}
+                <Profile />
               </ul>
             </nav>
 

@@ -22,6 +22,9 @@ class NoteService {
   changearchive(data) {
     return service.postMethod(`${baseUrl}notes/archiveNotes`, data, headerConfig);
   }
+  getUpdatedNote(data){
+    return service.postMethod(`${baseUrl}notes/updateNotes`,data,headerConfig)
+  }
   colorChange(data) {
     return service.postMethod(`${baseUrl}notes/changesColorNotes`, data, headerConfig)
   }

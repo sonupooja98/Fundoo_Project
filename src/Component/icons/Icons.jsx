@@ -111,7 +111,7 @@ export class Icon extends Component {
     handledelete = () => {
           let data = {
                 "noteIdList": [this.props.noteId],
-                "isDeleted": false
+                "isDeleted":true
             }
             services.deleteNote(data)
                 .then(res => {
@@ -148,7 +148,7 @@ export class Icon extends Component {
                             horizontal: "left"
                         }}
                     >
-                        {/* <Color /> */}
+                       
                         {
                             colorssss.map((item, index) => (
                                 <div className="colorPallets" onClick={() => this.newcolor(item)}
