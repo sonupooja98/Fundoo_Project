@@ -4,26 +4,64 @@ import AxiosService from './AxiosService'
 let baseUrl = 'http://fundoonotes.incubation.bridgelabz.com/api/';
 const service = new AxiosService();
 
-let headerConfig={
-     headers:{
-       Authorization: localStorage.getItem('id')
-     }
+let headerConfig = {
+  headers: {
+    Authorization: localStorage.getItem('id')
+  }
 }
 
 
 
 class NoteService {
-  addNote(data){
-      return service.postMethod(`${baseUrl}notes/addNotes`,data,headerConfig)
+  addNote(data) {
+    return service.postMethod(`${baseUrl}notes/addNotes`, data, headerConfig)
   }
-   getNote(){
-     return service.getMethod(`${baseUrl}notes/getNotesList`,headerConfig)
-   }
+  getNote() {
+    return service.getMethod(`${baseUrl}notes/getNotesList`, headerConfig)
+  }
+  changearchive(data) {
+    return service.postMethod(`${baseUrl}notes/archiveNotes`, data, headerConfig);
+  }
+  colorChange(data) {
+    return service.postMethod(`${baseUrl}notes/changesColorNotes`, data, headerConfig)
+  }
+
+  deleteNote(data) {
+    return service.postMethod(`${baseUrl}notes/trashNotes`, data, headerConfig)
+  }
+  archiveNotes(data){
+    return service.getMethod(`${baseUrl}notes/getArchiveNotesList`,data,headerConfig)
+  }
+  trashNotes(data){
+    return service.getMethod(`${baseUrl}notes/getTrashNotesList`,data,headerConfig)
+  }
+
 }
 
 
 
 export default NoteService
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

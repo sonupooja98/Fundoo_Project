@@ -11,6 +11,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
+import NoteService from "../../services/NotesService";
+
+const noteService = new NoteService();
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -52,13 +55,15 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export class DisplayNote extends Component {
-  
+
     constructor(props) {
         super(props);
         this.state = {
             open: false,
             title: this.props.AddingNotes.title,
-            description: this.props.AddingNotes.description
+            description: this.props.AddingNotes.description,
+            color: '#ffffff',
+            id: ''
 
 
         }
@@ -67,15 +72,43 @@ export class DisplayNote extends Component {
         this.setState({
             open: true,
             title: item.title,
-            description: item.description
+            description: item.description,
+            id: item.id
         })
         console.log(this.state.title)
     }
-
-    handleClose = () => {
+    colorchange = (val) => {
         this.setState({
-            open: false,
+            color: val
         })
+    }
+    handleClose = () => {
+        // this.setState({
+        //     open: false,
+        // })
+        const formData = new FormData();
+        formData.append("title", this.state.title)
+        formData.append("description", this.state.description)
+        formData.append("color", this.state.color)
+        formData.append("isArchived", this.state.archive)
+
+        noteService.getNote(formData)
+            .then(res => {
+                this.props.refreshDisplay();
+                this.setState({
+                    open: false,
+                    title: '',
+                    description: '',
+                    color: '#ffffff',
+                    archive: false
+
+                    // console.log(res);
+
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
@@ -84,7 +117,7 @@ export class DisplayNote extends Component {
         return (
             <div className="mainDisplay">
                 {this.props.AddingNotes.map((item, index) => (
-                    <div className='display-container'>
+                    <div className='display-container' style={{ backgroundColor: item.color }}>
                         <div className="Description" onClick={() => this.handleOpenTitle(item)}>
                             {/* <input className="button" id="" placeholder="title"></input>
                             <input className="buttonone" id="" placeholder="description"></input> */}
@@ -94,7 +127,7 @@ export class DisplayNote extends Component {
 
                         <div className="lastpart">
                             <div className="des-icons">
-                                <Icons />
+                                <Icons mode="update" colorchange={this.colorchange} getAllNote={this.props.refreshDisplay} noteId={item.id} />
                             </div>
                         </div>
                     </div>
@@ -102,27 +135,28 @@ export class DisplayNote extends Component {
 
                 <BootstrapDialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open}>
                     <div style={{ width: "100%", overflow: "hidden" }}>
-                        <BootstrapDialogTitle id="customized-dialog-title" onClose={this.handleClose} >
+                        <div style={{ backgroundColor: this.state.color }}>
+                            <BootstrapDialogTitle id="customized-dialog-title" onClose={this.handleClose} >
 
-                        <div className='first-title'>
-                            <input type="text" style={{ border: "none", outline: "none" }} value={this.state.title} name="title" onChange={(e) => this.howerTitleDesc(e)} />
-                            </div>
+                                <div className='first-title'>
+                                    <input type="text"  style={{ border: "none", outline: "none",backgroundColor: this.state.color }} value={this.state.title} name="title" onChange={(e) => this.howerTitleDesc(e)} />
+                                </div>
 
-                        </BootstrapDialogTitle>
-                        <DialogContent>
+                            </BootstrapDialogTitle>
+                            <DialogContent>
 
-                        <div className='second-des'>
-                            <input type="text" style={{ border: "none", outline: "none" }} value={this.state.description} name="description" onChange={(e) => this.howerTitleDesc(e)} />
-                            </div>
+                                <div className='second-des'>
+                                    <input type="text"  style={{ border: "none", outline: "none",backgroundColor: this.state.color }} value={this.state.description} name="description" onChange={(e) => this.howerTitleDesc(e)} />
+                                </div>
 
-                        </DialogContent>
-                        <DialogContent className="close-Icon" >
+                            </DialogContent>
+                            <DialogContent className="close-Icon" >
 
-                            <Icons />
-                            <button autoFocus onClick={(title, description) => this.handleClose(title, description)}>Close</button> 
-                            {/* <Button autoFocus onClick={(title, description) => this.handleClose(title, description)}> Close </Button> */}
-                        </DialogContent>
-
+                                <Icons mode="update" colorchange={this.colorchange} noteId={this.state.id} refreshDisplay={this.props.getAllNotes} />
+                                <button autoFocus onClick={(title, description) => this.handleClose(title, description)}>Close</button>
+                                {/* <Button autoFocus onClick={(title, description) => this.handleClose(title, description)}> Close </Button> */}
+                            </DialogContent>
+                        </div>
                     </div>
                 </BootstrapDialog>
             </div>

@@ -15,7 +15,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { Popover } from '@material-ui/core';
 
 import Color from '../color/Color'
+import NotesService from '../../services/NotesService';
 
+const services = new NotesService();
 let colorssss = [
     "#f28b82", "#fbbc04", "#fff475", "#ccff90",
     "#a7ffeb", "#cbf0f8", "#aecbfa", "#d7aefb",
@@ -58,11 +60,69 @@ export class Icon extends Component {
         })
     }
     newcolor = (col) => {
-        this.props.colorchange(col)
+        console.log("In")
+        if (this.props.mode === "create") {
+            console.log("in if")
+            this.props.colorchange(col)
+        }
+        else {
+            console.log("in else")
+            
+            let data = {
+                "noteIdList": [this.props.noteId],
+                "color": col
+            }
+            services.colorChange(data)
+                .then(res => {
+                    console.log(res)
+                    this.props.colorchange(col)
+                    this.props.getAllNote()
+
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
     }
-    archive =()=>{
-        this.props.archivebutton(true)
+
+
+    archive = (e) => {
+        e.stopPropagation()
+        if (this.props.mode === "create") {
+            this.props.archivebutton(true)
+        }
+        else {
+            console.log("in else")
+         
+            let data = {
+                "noteIdList": [this.props.noteId],
+                "isArchived": true
+            }
+            services.changearchive(data)
+                .then(res => {
+                    console.log(res)
+                    this.props.getAllNote()
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
     }
+    handledelete = () => {
+          let data = {
+                "noteIdList": [this.props.noteId],
+                "isDeleted": false
+            }
+            services.deleteNote(data)
+                .then(res => {
+                    console.log(res)
+                    this.props.getAllNote()
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    
 
 
 
@@ -102,7 +162,7 @@ export class Icon extends Component {
 
                 <IconButton><PhotoOutlinedIcon /></IconButton>
                 <div>
-                <IconButton><ArchiveOutlinedIcon onClick={(e)=>this.archive(e)}/></IconButton>
+                    <IconButton><ArchiveOutlinedIcon onClick={(e) => this.archive(e)} /></IconButton>
                 </div>
                 <div>
                     <IconButton> <MoreVertOutlinedIcon onClick={(e) => this.handleOpen(e)} /> </IconButton>
@@ -118,7 +178,7 @@ export class Icon extends Component {
                             horizontal: "left"
                         }}
                     >
-                        <MenuItem onClick={this.handleClose}>Delete note</MenuItem>
+                        <MenuItem onClick={this.handledelete}>Delete note</MenuItem>
                         <MenuItem onClick={this.handleClose}>Add label</MenuItem>
                         <MenuItem onClick={this.handleClose}>Add drawing</MenuItem>
                         <MenuItem onClick={this.handleClose}>Make a copy</MenuItem>

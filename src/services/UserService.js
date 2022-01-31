@@ -7,6 +7,12 @@ const baseurl='http://fundoonotes.incubation.bridgelabz.com/api/'
 
 const axiosService = new AxiosSerives();
 
+let header={
+  headers: {
+      Authorization: localStorage.getItem("token")
+  }
+}
+
 class UserService{
     Registeration(data){
       return  axiosService.postMethod(
@@ -28,6 +34,7 @@ class UserService{
   return  axiosService.postMethod(
         `${baseurl}user/reset`,data);
  }
+
 
 }
  

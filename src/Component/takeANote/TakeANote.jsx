@@ -55,14 +55,7 @@ export class TakeANote extends Component {
     }
 
     handleChange = () => {
-      
-
-        // let data = {
-        //     "title": this.state.title,
-        //     "description": this.state.description,
-        //     "color":this.state.color
-        // }
-        const formData = new FormData();
+       const formData = new FormData();
         formData.append("title",this.state.title)
         formData.append("description",this.state.description)
         formData.append("color",this.state.color)
@@ -121,7 +114,7 @@ export class TakeANote extends Component {
                                 <input className="Descriptionpart" type="text" name="description" id="" placeholder="Take a note" onChange={(e) => this.handleNotesOnChange(e)} />
                                 <div className="onecontainer">
                                     <div className="Iconpart">
-                                        <Icons colorchange={this.colorchange} archivebutton={this.archivebutton}/>
+                                        <Icons colorchange={this.colorchange}  mode="create"  archivebutton={this.archivebutton}/>
                                         
                                     </div>
                                    <button className="secondCButton" variant="text" onClick={this.handleChange}>Close</button>
