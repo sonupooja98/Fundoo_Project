@@ -6,7 +6,7 @@ const service = new AxiosService();
 
 let headerConfig = {
   headers: {
-    Authorization: localStorage.getItem('id')
+    Authorization: localStorage.getItem('token')
   }
 }
 

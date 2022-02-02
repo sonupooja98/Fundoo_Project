@@ -53,7 +53,11 @@ next=() =>{
             service.Login(request)
             .then(res=>{
                 console.log(res);
-                localStorage.setItem('id',res.data.id)
+                localStorage.setItem('token',res.data.id)
+                localStorage.setItem("firstName",res.data.firstName);
+                    localStorage.setItem("lastName",res.data.lastName);
+                    localStorage.setItem("email",res.data.email);
+                    window.location.href="http://localhost:4200/Dashboard";
                 this.setState({
                     emailid:'',
                     passid:''

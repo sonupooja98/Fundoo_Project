@@ -105,8 +105,8 @@ const AppBar = styled(MuiAppBar, {
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open"
 })(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
+  // width: drawerWidth,
+  flexShrink: 10,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {

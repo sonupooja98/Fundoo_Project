@@ -1,5 +1,5 @@
 .mainDisplay{
-   margin-top: 250px;
+   margin-top: 150px;
     display: grid;
      grid-template-columns: repeat(4,1fr);
     grid-gap:10px;
@@ -42,6 +42,33 @@
         display: flex;
       
     }
+
+   
+    
+@media screen and (max-width:375px) {
+        .mainDisplay{
+            grid-template-columns: repeat(1,1fr);
+            width: 100%;
+            
+        }
+        .display-container{
+            width: 80%;
+            margin: 1vh 10vw;
+           
+        }
+    }
+
+    @media screen and (max-width:500px) {
+        .mainDisplay{
+            grid-template-columns: repeat(1,1fr);
+            width: 100%;
+        }
+        .display-container{
+            width: 80%;
+            margin: 1vh 10vw;
+        }
+    }
+  
 
    
 
