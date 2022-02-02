@@ -27,6 +27,8 @@ import Notes from "../notes/Notes";
 
 
 import k from '../Assest/k.png'
+import Archive from "../archive/Archive";
+import Trash from "../trash/Trash";
 
 
 
@@ -42,8 +44,12 @@ import ViewStreamOutlinedIcon from '@mui/icons-material/ViewStreamOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useHistory } from "react-router";
 
 import Profile from '../profile/Profile'
+import {
+  BrowserRouter, Route, Switch
+} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -120,7 +126,9 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer() {
+  const history = useHistory();
   const theme = useTheme();
+  const [search, setSearch] = React.useState('');
   const [open, setOpen] = React.useState(false);
   let iconlist = [
     {
@@ -148,6 +156,28 @@ export default function MiniDrawer() {
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
+
+  
+  const iconClick = (text) => {
+    if (text.itext == "Notes") {
+
+      history.push("/")
+    }
+    else if (text.itext == "Archive") {
+  
+      history.push("/archive")
+    }
+    else if (text.itext == "Bin") {
+      history.push("/trash")
+    }
+    else {
+      console.log("page not found")
+    }
+  }
+
+const searchContent =(e) =>{
+  setSearch(e.target.value)
+}
 
 
 
@@ -196,7 +226,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {iconlist.map((text, index) => (
-            <ListItem button key={text.itext}>
+            <ListItem button key={text.itext}  onClick={() => iconClick(text)}>
               <ListItemIcon>
                 {text.icons}
               </ListItemIcon>
@@ -208,9 +238,13 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
       
-         <Notes />
+        
         <Typography paragraph>
-           
+        <Switch>
+              <Route exact path="/" component={Notes} />
+              <Route exact path="/archive" component={Archive} />
+              <Route exact path="/trash" component={Trash} />
+            </Switch>
       
         </Typography>
         <Typography paragraph>

@@ -32,11 +32,11 @@ class NoteService {
   deleteNote(data) {
     return service.postMethod(`${baseUrl}notes/trashNotes`, data, headerConfig)
   }
-  archiveNotes(data){
-    return service.getMethod(`${baseUrl}notes/getArchiveNotesList`,data,headerConfig)
+  archiveNotes(){
+    return service.getMethod(`${baseUrl}notes/getArchiveNotesList`,headerConfig)
   }
-  trashNotes(data){
-    return service.getMethod(`${baseUrl}notes/getTrashNotesList`,data,headerConfig)
+  trashNotes(){
+    return service.getMethod(`${baseUrl}notes/getTrashNotesList`,headerConfig)
   }
 
 }
